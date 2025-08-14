@@ -1,77 +1,129 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" dir="ltr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Volvamos a Amarnos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Un mensaje sincero y tierno: Volvamos a amarnos. Perdón por lastimarte." />
+  <meta property="og:title" content="Volvamos a Amarnos" />
+  <meta property="og:description" content="Perdón por lastimarte. Quiero hacerlo mejor contigo." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#e11d48" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+
   <style>
     :root{
-      --bg: linear-gradient(135deg,#fff5f7 0%, #ffeef0 100%);
+      --bg: linear-gradient(135deg, #fff5f7 0%, #ffeef0 100%);
+      --card: rgba(255, 255, 255, 0.9);
       --accent: #e11d48;
       --muted: #6b7280;
+      --shadow: 0 10px 30px rgba(16, 24, 40, 0.12);
     }
-    html,body{height:100%;}
+    html, body { height: 100%; }
     body{
-      margin:0;
-      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      margin: 0;
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       background: var(--bg);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:2rem;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    .card{
-      background:rgba(255,255,255,0.85);
-      border-radius:18px;
-      box-shadow:0 10px 30px rgba(16,24,40,0.12);
-      padding:3.5rem 2.5rem;
-      max-width:880px;
-      width:100%;
-      text-align:center;
+    main.card{
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: clamp(2rem, 6vw, 4rem);
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
     }
     .heart{
-      display:inline-block;
-      width:68px;
-      height:68px;
-      margin-bottom:0.6rem;
-      animation: float 2s ease-in-out infinite;
+      width: 72px; height: 72px; margin: 0 auto 0.5rem;
+      display: block;
+      animation: float 2.8s ease-in-out infinite;
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
     h1{
-      margin:0 0 0.6rem 0;
-      font-size: clamp(28px, 5vw, 56px);
-      line-height:1.02;
-      color:var(--accent);
-      font-weight:700;
-      letter-spacing:-0.02em;
+      margin: 0 0 0.5rem 0;
+      font-size: clamp(28px, 6vw, 56px);
+      line-height: 1.05;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
-    p{
-      margin:0;
-      font-size: clamp(18px, 2.6vw, 24px);
-      color:var(--muted);
-      font-weight:500;
+    p.subtitle{
+      margin: 0;
+      font-size: clamp(18px, 3vw, 22px);
+      color: var(--muted);
+      font-weight: 500;
     }
-    @media print{
-      body{background: white}
-      .card{box-shadow:none;background:white;border-radius:0;padding:2rem}
+    .videos{
+      margin-top: 2rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+    video{
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    label{
+      font-weight: 600;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    @media print {
+      body { background: #fff; padding: 0; }
+      main.card { box-shadow: none; background: #fff; border-radius: 0; }
+      .videos { display: none; }
     }
   </style>
 </head>
 <body>
-  <main class="card" role="main" aria-label="Mensaje de disculpa">
-    <svg class="heart" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <main class="card" role="main" aria-label="Mensaje de disculpa y reconciliación">
+    <svg class="heart" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 21s-7.333-4.667-9.167-7.167C-0.167 9.333 4.667 4 9.5 6.5 11.167 7.5 12 9 12 9s.833-1.5 2.5-2.5C19.333 4 24.167 9.333 21.167 13.833 19.333 16.333 12 21 12 21z" fill="#fde8ee"/>
       <path d="M12 19.2s-5.833-3.7-7.5-5.675C2.3 10.325 6.3 6.6 9.5 8.35 11.167 9.275 12 10.7 12 10.7s.833-1.425 2.5-2.35c3.2-1.75 7.2 1.975 4.999 5.175C17.833 15.5 12 19.2 12 19.2z" fill="#f9a8b6"/>
     </svg>
-
     <h1>Volvamos a Amarnos</h1>
-    <p>Perdón por ser tan idiota</p>
+    <p class="subtitle">Perdón por ser tan idiota</p>
+    <section class="videos">
+      <div>
+        <label for="video1">Video explicando</label>
+        <video id="video1" controls>
+          <source src="video1.mp4" type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
+      <div>
+        <label for="video2">Tratando de entender mi cabeza</label>
+        <video id="video2" controls>
+          <source src="video2.mp4" type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
+      <div>
+        <label for="video3">Porque hago estos videos</label>
+        <video id="video3" controls>
+          <source src="video3.mp4" type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
+      <div>
+        <label for="video4">Último Video</label>
+        <video id="video4" controls>
+          <source src="video4.mp4" type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
+    </section>
   </main>
 </body>
 </html>
