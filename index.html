@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Volvamos a Amarnos</title>
+  <title>Una carta con mis sentimientos hacía vos</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -75,6 +75,29 @@
       border: none;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
+    button{
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+    button:hover{
+      background: #c8103d;
+    }
+    .foto-container{
+      margin-top: 1.5rem;
+      display: none;
+    }
+    .foto-container img{
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
     @media print{
       body{background: white}
       .card{box-shadow:none;background:white;border-radius:0;padding:2rem}
@@ -89,32 +112,58 @@
       <path d="M12 19.2s-5.833-3.7-7.5-5.675C2.3 10.325 6.3 6.6 9.5 8.35 11.167 9.275 12 10.7 12 10.7s.833-1.425 2.5-2.35c3.2-1.75 7.2 1.975 4.999 5.175C17.833 15.5 12 19.2 12 19.2z" fill="#f9a8b6"/>
     </svg>
 
-    <h1>Volvamos a Amarnos</h1>
-    <p>Perdón por ser tan idiota</p>
+    <h1>Una carta con mis sentimientos hacía vos</h1>
+    <p>Si ya leíste la carta, ahora tengo videos creativos y unos más serios que quiero que veas</p>
+
+    <button id="showFoto">Mi foto favorita</button>
+    <button id="hideFoto" style="display:none;">Atrás</button>
+
+    <div class="foto-container" id="fotoContainer">
+      <img src="Arami.jpg" alt="Mi foto favorita" height="500px" width="250px">
+    </div>
 
     <section class="videos">
       <div>
-        <label for="yt1">Aclaro que estos videos están en privados solo los que tienen ese link pueden ver, no te preocupes. </label> 
-        <label for="yt1">Explicando Cosas</label>
-         <a href="https://youtu.be/gGEyOCdLMt4" target="_blank">Ver en YouTube</a>
+        <label>Aclaro que estos videos están en privados solo los que tienen ese link pueden ver, te pido que lo tengas solo vos. </label> 
+        <label>Explicando Cosas en Mine</label>
+         <a href="https://youtu.be/TVCSk3N6l9A" target="_blank">Ver en YouTube</a>
       </div>
       <div>
-        <label for="yt2">Entendiendo mi cabeza</label>
-         <a href="https://youtu.be/Wxl2DzLMKt0" target="_blank">Ver en YouTube</a>
+        <label>Yo hablando</label>
+         <a href="https://youtu.be/czZTKSgcx1k" target="_blank">Ver en YouTube</a>
       </div>
       <div>
-        <label for="yt3">Porque hago estos videos</label>
-         <a href="https://youtube.com/shorts/j_SYXGILp8I" target="_blank">Ver en YouTube</a>
+        <label>Explicando Cosas en Mine 2</label>
+         <a href="https://youtu.be/sMxiVlO5GbQ" target="_blank">Ver en YouTube</a>
       </div>
       <div>
-        <label for="yt4">Video final</label>
-         <a href="https://youtu.be/tFdyGJn4Gng" target="_blank">Ver en YouTube</a>
+        <label>Yo hablando de nuevo</label>
+         <a href="https://youtu.be/z5Gb16n9_KY" target="_blank">Ver en YouTube</a>
       </div>
       <div>
-        <label for="Music"> Musica que me hace pensar en vos</label>
-        <a href="https://www.youtube.com/watch?v=MldGX_mbS-o" target="_blank">M.A.I </a> 
+        <label>Musicas que me hacen pensar en vos</label>
+        <a href="https://www.youtube.com/watch?v=MldGX_mbS-o" target="_blank">M.A.I</a>
+        <center> <a> _ </a> </center>
+        <a href="https://www.youtube.com/watch?v=yv_VOxdd8ac" target="_blank">Por Ti</a> 
       </div>
     </section>
   </main>
+  <script>
+    const showBtn = document.getElementById('showFoto');
+    const hideBtn = document.getElementById('hideFoto');
+    const fotoContainer = document.getElementById('fotoContainer');
+
+    showBtn.addEventListener('click', () => {
+      fotoContainer.style.display = 'block';
+      showBtn.style.display = 'none';
+      hideBtn.style.display = 'inline-block';
+    });
+
+    hideBtn.addEventListener('click', () => {
+      fotoContainer.style.display = 'none';
+      hideBtn.style.display = 'none';
+      showBtn.style.display = 'inline-block';
+    });
+  </script>
 </body>
 </html>
