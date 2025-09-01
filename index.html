@@ -6,6 +6,24 @@
   <title>Una carta con mis sentimientos hacía vos</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('corazones.png') repeat;
+  background-size: 150px; /* Ajusta el tamaño de los corazones */
+  opacity: 0.1;
+  pointer-events: none;
+  animation: moveHearts 30s linear infinite;
+  z-index: -1;
+}
+
+/* Animación para mover los corazones */
+@keyframes moveHearts {
+  0% { background-position: 0 0; }
+  100% { background-position: 1000px 1000px; }
+}
     :root{
       --bg: linear-gradient(135deg,#fff5f7 0%, #ffeef0 100%);
       --accent: #e11d48;
@@ -103,6 +121,18 @@
       .card{box-shadow:none;background:white;border-radius:0;padding:2rem}
       .videos { display: none; }
     }
+    .quote {
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--accent);
+  font-weight: 600;
+  animation: fadeInOut 3s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
   </style>
 </head>
 <body>
@@ -150,6 +180,8 @@
         <center> <a> _ </a> </center>
         <a href="https://www.youtube.com/watch?v=yv_VOxdd8ac" target="_blank">Por Ti</a> 
       </div>
+        <p class="quote"> ME ENCANTASSSS BOMBONNN </p>
+        <footer style="margin-top:2rem; color:#6b7280; font-size:0.9rem;"> Hecho con mucho amor por Mati ❤️</footer>
     </section>
   </main>
   <script>
