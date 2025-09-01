@@ -3,187 +3,243 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Una carta con mis sentimientos hacía vos</title>
+  <title>Una carta con mis sentimientos hacia vos</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: url('corazones.png') repeat;
-  background-size: 150px; /* Ajusta el tamaño de los corazones */
-  opacity: 0.1;
-  pointer-events: none;
-  animation: moveHearts 30s linear infinite;
-  z-index: -1;
-}
+    /* Fondo animado */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('corazones.png') repeat;
+      background-size: 150px;
+      opacity: 0.1;
+      pointer-events: none;
+      animation: moveHearts 30s linear infinite;
+      z-index: -1;
+    }
+    @keyframes moveHearts {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
 
-/* Animación para mover los corazones */
-@keyframes moveHearts {
-  0% { background-position: 0 0; }
-  100% { background-position: 1000px 1000px; }
-}
-    :root{
+    /* Colores y fuente */
+    :root {
       --bg: linear-gradient(135deg,#fff5f7 0%, #ffeef0 100%);
       --accent: #e11d48;
       --muted: #6b7280;
     }
-    html,body{height:100%;}
-    body{
-      margin:0;
-      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
       background: var(--bg);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:2rem;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
+      padding: 1rem;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    .card{
-      background:rgba(255,255,255,0.85);
-      border-radius:18px;
-      box-shadow:0 10px 30px rgba(16,24,40,0.12);
-      padding:3.5rem 2.5rem;
-      max-width:880px;
-      width:100%;
-      text-align:center;
+
+    /* Tarjeta */
+    .card {
+      background: rgba(255,255,255,0.9);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(16,24,40,0.12);
+      padding: 2rem;
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
     }
-    .heart{
-      display:inline-block;
-      width:68px;
-      height:68px;
-      margin-bottom:0.6rem;
+
+    /* Corazón animado */
+    .heart {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.5rem;
       animation: float 2s ease-in-out infinite;
     }
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
+      0%,100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-    h1{
-      margin:0 0 0.6rem 0;
-      font-size: clamp(28px, 5vw, 56px);
-      line-height:1.02;
-      color:var(--accent);
-      font-weight:700;
-      letter-spacing:-0.02em;
-    }
-    p{
-      margin:0;
-      font-size: clamp(18px, 2.6vw, 24px);
-      color:var(--muted);
-      font-weight:500;
-    }
-    .videos{
-      margin-top: 2rem;
-      display: grid;
-      gap: 1.5rem;
-    }
-    label{
-      font-weight: 600;
+
+    /* Texto principal */
+    h1 {
+      margin: 0 0 0.8rem 0;
+      font-size: clamp(24px, 6vw, 50px);
       color: var(--accent);
-      display: block;
-      margin-bottom: 0.5rem;
+      font-weight: 700;
     }
-    iframe{
-      width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 12px;
-      border: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    p {
+      margin: 0;
+      font-size: clamp(16px, 4vw, 20px);
+      color: var(--muted);
+      font-weight: 500;
     }
-    button{
+
+    /* Botones y foto */
+    button {
       background: var(--accent);
       color: white;
       border: none;
-      padding: 0.7rem 1.5rem;
+      padding: 0.6rem 1.2rem;
       border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
       margin-top: 1rem;
       transition: background 0.3s;
     }
-    button:hover{
-      background: #c8103d;
-    }
-    .foto-container{
-      margin-top: 1.5rem;
+    button:hover { background: #c8103d; }
+    .foto-container {
+      margin-top: 1rem;
       display: none;
     }
-    .foto-container img{
-      max-width: 100%;
+    .foto-container img {
+      max-width: 25%;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    @media print{
-      body{background: white}
-      .card{box-shadow:none;background:white;border-radius:0;padding:2rem}
+
+    /* Videos */
+    .videos {
+      margin-top: 2rem;
+      text-align: left;
+    }
+    .videos div {
+      margin-bottom: 1rem;
+    }
+    .videos label {
+      font-weight: 600;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .videos a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .videos a:hover { text-decoration: underline; }
+
+    /* Frase */
+    .quote {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-top: 1.5rem;
+      font-weight: 600;
+      animation: fadeInOut 3s ease-in-out infinite;
+    }
+    @keyframes fadeInOut {
+      0%,100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 1.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .card {
+        padding: 1.5rem 1rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      button {
+        width: 100%;
+        font-size: 1rem;
+      }
+      .videos {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media print {
+      body { background: white; }
+      .card { box-shadow: none; background: white; border-radius: 0; padding: 2rem; }
       .videos { display: none; }
     }
-    .quote {
-  font-style: italic;
-  font-size: 1.3rem;
-  color: var(--accent);
-  font-weight: 600;
-  animation: fadeInOut 3s ease-in-out infinite;
+    .videos {
+  margin-top: 2rem;
+  text-align: center; /* centramos todo */
 }
 
-@keyframes fadeInOut {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
+.videos div {
+  margin-bottom: 1rem;
 }
+
+.videos label {
+  font-weight: 600;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.videos a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.videos a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <main class="card" role="main" aria-label="Mensaje de disculpa">
-    <svg class="heart" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <main class="card">
+    <svg class="heart" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 21s-7.333-4.667-9.167-7.167C-0.167 9.333 4.667 4 9.5 6.5 11.167 7.5 12 9 12 9s.833-1.5 2.5-2.5C19.333 4 24.167 9.333 21.167 13.833 19.333 16.333 12 21 12 21z" fill="#fde8ee"/>
       <path d="M12 19.2s-5.833-3.7-7.5-5.675C2.3 10.325 6.3 6.6 9.5 8.35 11.167 9.275 12 10.7 12 10.7s.833-1.425 2.5-2.35c3.2-1.75 7.2 1.975 4.999 5.175C17.833 15.5 12 19.2 12 19.2z" fill="#f9a8b6"/>
     </svg>
-
-    <h1>Una carta con mis sentimientos hacía vos</h1>
+    <h1>Una carta con mis sentimientos hacia vos</h1>
     <p>Si ya leíste la carta, ahora tengo videos creativos y unos más serios que quiero que veas</p>
 
     <button id="showFoto">Mi foto favorita</button>
     <button id="hideFoto" style="display:none;">Atrás</button>
-
     <div class="foto-container" id="fotoContainer">
-      <img src="Arami.jpg" alt="Mi foto favorita" height="500px" width="250px">
+      <img src="Arami.jpg" alt="Mi foto favorita">
     </div>
 
     <section class="videos">
       <div>
-        <label>Aclaro que estos videos están en privados solo los que tienen ese link pueden ver, te pido que lo tengas solo vos. </label> 
         <label>Explicando Cosas en Mine</label>
-         <a href="https://youtu.be/BSdWEzGqIMs" target="_blank">Ver en YouTube</a>
+        <a href="https://youtu.be/BSdWEzGqIMs" target="_blank">Ver en YouTube</a>
       </div>
       <div>
         <label>Yo hablando</label>
-         <a href="https://youtu.be/AzGMfDV-xTU" target="_blank">Ver en YouTube</a>
+        <a href="https://youtu.be/AzGMfDV-xTU" target="_blank">Ver en YouTube</a>
       </div>
       <div>
         <label>Explicando Cosas en Mine 2</label>
-         <a href="https://youtu.be/sMxiVlO5GbQ" target="_blank">Ver en YouTube</a>
+        <a href="https://youtu.be/sMxiVlO5GbQ" target="_blank">Ver en YouTube</a>
       </div>
-        <div>
+      <div>
         <label>Yo hablando de nuevo</label>
-         <a href="https://youtu.be/z5Gb16n9_KY" target="_blank">Ver en YouTube</a>
+        <a href="https://youtu.be/z5Gb16n9_KY" target="_blank">Ver en YouTube</a>
       </div>
       <div>
         <label>Mi video con edición (Importante)</label>
-         <a href="https://youtu.be/dpNvAzmujAg" target="_blank">Ver en YouTube</a>
+        <a href="https://youtu.be/dpNvAzmujAg" target="_blank">Ver en YouTube</a>
       </div>
       <div>
-        <label>Musicas que me hacen pensar en vos</label>
-        <a href="https://www.youtube.com/watch?v=MldGX_mbS-o" target="_blank">M.A.I</a>
-        <center> <a> _ </a> </center>
-        <a href="https://www.youtube.com/watch?v=yv_VOxdd8ac" target="_blank">Por Ti</a> 
+        <label>Músicas que me hacen pensar en vos</label>
+        <a href="https://www.youtube.com/watch?v=MldGX_mbS-o" target="_blank">M.A.I</a> | 
+        <a href="https://www.youtube.com/watch?v=yv_VOxdd8ac" target="_blank">Por Ti</a>
       </div>
-        <p class="quote"> ME ENCANTASSSS BOMBONNN </p>
-        <footer style="margin-top:2rem; color:#6b7280; font-size:0.9rem;"> Hecho con mucho amor por Mati ❤️</footer>
     </section>
+
+    <p class="quote">ME ENCANTASSSS BOMBONNN</p>
+    <footer>Hecho con mucho amor por Mati ❤️</footer>
   </main>
+
   <script>
     const showBtn = document.getElementById('showFoto');
     const hideBtn = document.getElementById('hideFoto');
